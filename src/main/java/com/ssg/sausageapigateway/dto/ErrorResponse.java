@@ -1,5 +1,6 @@
-package com.ssg.sausageapigateway.exception;
+package com.ssg.sausageapigateway.dto;
 
+import com.ssg.sausageapigateway.exception.ErrorCode;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
