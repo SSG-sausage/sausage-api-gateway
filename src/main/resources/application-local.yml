@@ -1,0 +1,45 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  application:
+    name: sausage-api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: member-api
+          uri: lb://SAUSAGE-MEMBER-API
+          predicates:
+            - Path=/member/**
+          filters:
+            - RewritePath=/member/(?<path>.*),/$\{path}
+            - MemberAuthFilter
+
+        - id: item-api
+          uri: lb://SAUSAGE-ITEM-API
+          predicates:
+            - Path=/item/**
+          filters:
+            - RewritePath=/item/(?<path>.*),/$\{path}
+
+        - id: order-api
+          uri: lb://SAUSAGE-ORDER-API
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order/(?<path>.*),/$\{path}
+
+        - id: dutch-pay-api
+          uri: lb://SAUSAGE-DUTCH-PAY-API
+          predicates:
+            - Path=/dutch-pay/**
+          filters:
+            - RewritePath=/dutch-pay/(?<path>.*),/$\{path}
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
