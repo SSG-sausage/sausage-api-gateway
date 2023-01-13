@@ -1,9 +1,7 @@
-package com.ssg.sausageapigateway;
+package com.ssg.sausageapigateway.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ssg.sausageapigateway.exception.ErrorCode;
-import com.ssg.sausageapigateway.exception.ErrorResponse;
-import com.ssg.sausageapigateway.exception.MbrIdHeaderNotFoundException;
+import com.ssg.sausageapigateway.dto.ErrorResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
 import org.springframework.core.annotation.Order;

@@ -1,4 +1,4 @@
-package com.ssg.sausageapigateway;
+package com.ssg.sausageapigateway.filter;
 
 import com.ssg.sausageapigateway.exception.MbrIdHeaderNotFoundException;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
