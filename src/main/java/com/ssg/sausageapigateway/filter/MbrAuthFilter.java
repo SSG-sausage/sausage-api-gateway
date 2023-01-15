@@ -7,7 +7,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MemberAuthFilter extends AbstractGatewayFilterFactory<Object> {
+public class MbrAuthFilter extends AbstractGatewayFilterFactory<Object> {
 
     @Override
     public GatewayFilter apply(Object config) {
