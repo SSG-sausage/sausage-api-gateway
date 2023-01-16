@@ -6,14 +6,30 @@ spring:
     name: sausage-api-gateway
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allow-credentials: true
+            allowedHeaders: "*"
+            allowedMethods: "*"
+
       routes:
+
+        - id: member-api
+          uri: lb://SAUSAGE-MEMBER-API
+          predicates:
+            - Path=/member/auth/**
+          filters:
+            - RewritePath=/member/(?<path>.*),/$\{path}
+
         - id: member-api
           uri: lb://SAUSAGE-MEMBER-API
           predicates:
             - Path=/member/**
           filters:
             - RewritePath=/member/(?<path>.*),/$\{path}
-            - MemberAuthFilter
+            - MbrAuthFilter
 
         - id: item-api
           uri: lb://SAUSAGE-ITEM-API
