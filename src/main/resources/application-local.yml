@@ -15,11 +15,10 @@ spring:
             allowedMethods: "*"
 
       routes:
-
         - id: member-api
           uri: lb://SAUSAGE-MEMBER-API
           predicates:
-            - Path=/member/auth/**
+            - Path=/member/api/auth/**
           filters:
             - RewritePath=/member/(?<path>.*),/$\{path}
 
