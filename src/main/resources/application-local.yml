@@ -37,6 +37,13 @@ spring:
           filters:
             - RewritePath=/item/(?<path>.*),/$\{path}
 
+        - id: cart-share-api
+          uri: lb://SAUSAGE-CART-SHARE-API
+          predicates:
+            - Path=/cart-share/**
+          filters:
+            - RewritePath=/cart-share/(?<path>.*),/$\{path}
+
         - id: order-api
           uri: lb://SAUSAGE-ORDER-API
           predicates:
