@@ -51,12 +51,12 @@ spring:
           filters:
             - RewritePath=/order/(?<path>.*),/$\{path}
 
-        - id: dutch-pay-api
-          uri: lb://SAUSAGE-DUTCH-PAY-API
+        - id: cart-share-calculation-api
+          uri: lb://SAUSAGE-CART-SHARE-CALCULATION-API
           predicates:
-            - Path=/dutch-pay/**
+            - Path=/cart-share-calculation/**
           filters:
-            - RewritePath=/dutch-pay/(?<path>.*),/$\{path}
+            - RewritePath=/cart-share-calculation/(?<path>.*),/$\{path}
 
 
 eureka:
